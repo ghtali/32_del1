@@ -24,22 +24,27 @@ public class DiceCup {
 		this.roundScore = roundScore;
 	}
 
+	/** henter faceValue fra terning 1 */
 	public int getD1() {
 		return d1.getFaceValue();
 	}
 	
+	/** henter faceValue fra terning 2 */
 	public int getD2() {
 		return d2.getFaceValue();
 	}
 	
+	/** henter forrige faceValue fra terning 1 */
 	public int getLastD1() {
 		return d1.getLastValue();
 	}
 	
+	/** henter forrige faceValue fra terning 2 */
 	public int getLastD2() {
 		return d2.getLastValue();
 	}
 	
+	/** kaster begge terninger og gemmer summen af resultatet i roundScore */
 	public void throwDice() {
 		d1.roll();
 		d2.roll();
