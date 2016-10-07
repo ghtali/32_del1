@@ -7,6 +7,7 @@ public class Rules {
 		return cup.getD1() == cup.getD2();
 	}
 	
+	/** tjekker om der er slået to 1'ere */
 	public static boolean evalTwoOnes(DiceCup cup) {
 		return cup.getD1() == 1 && cup.getD2() == 1;
 	}
