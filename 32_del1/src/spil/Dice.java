@@ -31,10 +31,12 @@ public class Dice {
 		return faceValue;
 	}
 	
+	/** sætter værdien af forrige kast */
 	public void setLastValue(int value) {
 		lastValue = value;
 	}
 	
+	/** henter værdien af forrige kast */
 	public int getLastValue() {
 		return lastValue;
 	}
