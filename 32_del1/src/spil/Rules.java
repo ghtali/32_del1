@@ -2,6 +2,7 @@ package spil;
 
 public class Rules {
 	
+	/** tjekker om der er slået to ens */
 	public static boolean evalEqual(DiceCup cup) {
 		return cup.getD1() == cup.getD2();
 	}
