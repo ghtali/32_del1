@@ -1,23 +1,39 @@
 package spil;
 
 public class Rules {
-	
-	/** tjekker om der er slået to ens */
+
+	/**
+	 * Evaluates if equal dices were thrown
+	 * @param cup DiceCup
+	 * @return boolean
+	 */
 	public static boolean evalEqual(DiceCup cup) {
 		return cup.getD1() == cup.getD2();
 	}
-	
-	/** tjekker om der er slået to 1'ere */
+
+	/**
+	 * Evaluates if two ones were thrown.
+	 * @param cup DiceCup
+	 * @return boolean
+	 */
 	public static boolean evalTwoOnes(DiceCup cup) {
 		return cup.getD1() == 1 && cup.getD2() == 1;
 	}
-	
-	/** tjekker om der er slået to 6'ere to gange i træk*/
+
+	/**
+	 * Evaluates if two sixes were thrown two rounds in a row
+	 * @param cup DiceCup
+	 * @return boolean
+	 */
 	public static boolean evalTwoSixesInRow(DiceCup cup) {
 		return cup.getD1() == 6 && cup.getD2() == 6 && cup.getLastD1() == 6 && cup.getLastD2() == 6;
 	}
 
-	/** tjekker om spilleren har 40 point */
+	/**
+	 * Evaluates if player has 40 or more points
+	 * @param player Player
+	 * @return boolean
+	 */
 	public static boolean evalFourty(Player player) {
 		return player.getPoints() >= 40;
 	}

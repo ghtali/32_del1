@@ -2,52 +2,76 @@ package spil;
 
 public class DiceCup {
 
-	private Dice d1;	/** terning 1 */
-	private Dice d2;	/** terning 2 */
+	private Dice d1; //terning 1
+	private Dice d2; //terning 2
 
-	private int roundScore; 		/** nuværende sum af antal øjne på de to terninger */
-	
-	/** default konstruktør, et rafflebæger der indeholder 2 terninger samt summen af de 2 terninger og
-	 * om sidste slag var 2 6'ere. */
+	private int roundScore; //nuværende sum af antal øjne på de to terninger
+
+	/**
+	 * Default constructor.
+	 * Creates dicecup with two dices.
+	 */
 	public DiceCup() {
 		d1 = new Dice();
 		d2 = new Dice();
 	}
 
-	/** henter slagets point */
+	/**
+	 * Gets turn points
+	 * @return int
+	 */
 	public int getRoundScore() {
 		return roundScore;
 	}
 
-	/** sætter slagets point */
+	/**
+	 * Sets round score11
+	 * @param roundScore
+	 */
 	public void setRoundScore(int roundScore) {
 		this.roundScore = roundScore;
 	}
 
-	/** henter faceValue fra terning 1 */
+	/**
+	 * Gets dice1 object
+	 * @return Dice
+	 */
 	public int getD1() {
 		return d1.getFaceValue();
 	}
-	
-	/** henter faceValue fra terning 2 */
+
+	/**
+	 * Gets dice2 object
+	 * @return Dice
+	 */
 	public int getD2() {
 		return d2.getFaceValue();
 	}
-	
-	/** henter forrige faceValue fra terning 1 */
+
+	/**
+	 * Gets last result of dice1
+	 * @return int1
+	 */
 	public int getLastD1() {
 		return d1.getLastValue();
 	}
-	
-	/** henter forrige faceValue fra terning 2 */
+
+	/**
+	 * Gets last result of dice2
+	 * @return int1
+	 */
 	public int getLastD2() {
 		return d2.getLastValue();
 	}
-	
-	/** kaster begge terninger og gemmer summen af resultatet i roundScore */
-	public void throwDice() {
+
+	/**
+	 * Throws both dices in cup
+	 * @return int
+	 */
+	public int throwDice() {
 		d1.roll();
 		d2.roll();
 		setRoundScore(d1.getFaceValue() + d2.getFaceValue());
+		return d1.getFaceValue() + d2.getFaceValue();
 	}
 }

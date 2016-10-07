@@ -13,8 +13,12 @@ public class GameBoard {
 
 	public GameBoard() {}
 
+	/**
+	 * Main Loop running the game
+	 * return void
+	 */
 	public void gameLoop() {
-		
+
 		System.out.println("Velkommen til terning spillet! Spillet er et spil mellem to personer, der går ud på først\n"
 				+ "at opnå 40 point, ved at slå med to terninger, og derefter slå 2 ens for at vinde spillet.\n"
 				+ "\n"
@@ -45,6 +49,11 @@ public class GameBoard {
 		System.out.println();
 	}
 
+    /**
+     * Starts turn for a player, and corresponding dicecup
+     * @param p Player
+     * @param c DiceCup
+     */
 	public void startTurn(Player p, DiceCup c) {
 
 		boolean extraTurn = true;
@@ -87,7 +96,7 @@ public class GameBoard {
 			
 			p.addPoints(c.getD1()+c.getD2());
 			
-			if (p.getPoints() > 40)
+			if (p.getPoints() >= 40)
 			{
 				p.setPoints(40);
 			}

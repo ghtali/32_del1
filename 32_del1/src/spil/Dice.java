@@ -2,21 +2,28 @@ package spil;
 
 public class Dice {
 	
-	private final int MAX = 6 ; /** antal sider på terningen. */
-	private int faceValue = 1; 	/** nuværende værdi af terningen */
+	private final int MAX = 6 ; // Sides on the dice
+	private int faceValue = 1; 	// Current value on the dice
 	private int lastValue = 1;
 
-	/** default konstruktør - tildeler tilfældig værdi. */
+	/**
+	 * Default constructor
+	 */
 	public Dice() {}
-	
-	/** kopi-konstruktør der sætter værdien fra et andet terning objekt. */
+
+	/**
+	 * Copy Constructor. Copies dice attributes to new object
+	 * @param t Dice
+	 */
 	public Dice(Dice t)
 	{
 		faceValue = t.faceValue;
 	}
 
-	/** sætter ternings værdi. Hvis den indtastede værdi ikke er repræsenteret på terningen, kastes terningen
-	for ny tilfældig værdi(setter). */
+	/**
+	 * Sets facevalue of dice. If value doesnt fit the dice, a roll will be applied for a random value.
+	 * @param value int
+	 */
 	public void setFaceValue(int value)
 	{
 		if (value >= 1 && value <= MAX)
@@ -25,30 +32,57 @@ public class Dice {
 		} else this.roll();
 	}
 
-	/** henter terningens nuværende værdi(getter). */
+	/**
+	 * Gets current dice value (getter)
+	 * @return int
+	 */
 	public int getFaceValue()
 	{
 		return faceValue;
 	}
-	
-	/** sætter værdien af forrige kast */
+
+	/**
+	 * Sets last value on dice (setter)
+	 * @param value int
+	 */
 	public void setLastValue(int value) {
 		lastValue = value;
 	}
-	
-	/** henter værdien af forrige kast */
+
+	/**
+	 * Returns laster value on dice (getter)
+	 * @return int
+	 */
 	public int getLastValue() {
 		return lastValue;
 	}
 
-	/** gemmer forrige kast i variablen lastValue og kaster derefter terningen og returner værdien. */
-	public void roll()
+	/**
+	 * Sets random value to facevalue on dice and stores previous result beforehand.
+	 * @return int
+	 */
+	public int roll()
 	{
 		setLastValue(getFaceValue());
-		setFaceValue(( int )( Math.random() * MAX ) + 1);
+		int roll = ( int )( Math.random() * MAX ) + 1;
+		setFaceValue(roll);
+		return roll;
 	}
 
-	/** returnerer en streng repræsentation af objektets data. */
+	/**
+	 * Testing method used to verify acceptance of roll-randomness (Unused in solution)
+	 */
+	public void unfairRoll(){
+		float d1=(float)Math.random();     // 0-1
+		float d2=d1*5;                     // 0-5
+		int d3=Math.round(d2);             // 0-5 integer
+		setFaceValue(d3+1);
+	}
+
+	/**
+	 * Override method to print dice result
+	 * @return String
+	 */
 	public String toString()
 	{
 		String result = "øjne: " + faceValue;
